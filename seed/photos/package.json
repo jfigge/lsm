@@ -1,0 +1,11 @@
+{
+  "name": "lsm-seed-photos",
+  "private": true,
+  "type": "module",
+  "description": "Offline avatar generator for seed staff photos (see README.md)",
+  "dependencies": {
+    "@dicebear/collection": "9.4.2",
+    "@dicebear/core": "9.4.2",
+    "sharp": "0.35.4"
+  }
+}
