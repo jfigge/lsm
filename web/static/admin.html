@@ -5,9 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin · LSM</title>
 <link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="/admin.css">
+<script type="module" src="/admin.js"></script>
 </head>
-<body>
-<h1>Admin</h1>
-<p class="muted">Admin sections arrive in build step 7.</p>
+<body class="admin">
+<header class="topbar">
+  <div class="brand">LSM <span>Admin</span></div>
+  <nav id="nav" hidden>
+    <a href="#months" data-section="months">Months &amp; signups</a>
+    <a href="#rules" data-section="rules">Ranking rules</a>
+    <a href="#headcount" data-section="headcount">Headcount</a>
+  </nav>
+  <div id="who"></div>
+</header>
+<div id="toast" role="status" aria-live="polite"></div>
+<main id="view"><p class="muted">Loading…</p></main>
+<noscript><p>The admin pages need JavaScript.</p></noscript>
 </body>
 </html>

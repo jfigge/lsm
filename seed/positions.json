@@ -1,0 +1,3703 @@
+[
+ {
+  "name": "East Fast Door 1",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ]
+ },
+ {
+  "name": "East Fast Door 2",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Fast Door 3",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Fast Door 4",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Fast Wander 1",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Fast Wander 2",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Fast X-ray",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 55,
+  "capabilities": [
+   "x-ray"
+  ]
+ },
+ {
+  "name": "East Fast Lead",
+  "department": "Event Security",
+  "area": "East Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": true,
+  "desirability": 30,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "East Fast Door 1",
+   "East Fast Door 2",
+   "East Fast Door 3",
+   "East Fast Door 4",
+   "East Fast Wander 1",
+   "East Fast Wander 2",
+   "East Fast X-ray"
+  ]
+ },
+ {
+  "name": "East Slow Door 1",
+  "department": "Event Security",
+  "area": "East Slow",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ]
+ },
+ {
+  "name": "East Slow Door 2",
+  "department": "Event Security",
+  "area": "East Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Slow Door 3",
+  "department": "Event Security",
+  "area": "East Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Slow Door 4",
+  "department": "Event Security",
+  "area": "East Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Slow Wander 1",
+  "department": "Event Security",
+  "area": "East Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Slow Wander 2",
+  "department": "Event Security",
+  "area": "East Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "East Slow Lead",
+  "department": "Event Security",
+  "area": "East Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": true,
+  "desirability": 30,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "East Slow Door 1",
+   "East Slow Door 2",
+   "East Slow Door 3",
+   "East Slow Door 4",
+   "East Slow Wander 1",
+   "East Slow Wander 2"
+  ]
+ },
+ {
+  "name": "West Fast Door 1",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ]
+ },
+ {
+  "name": "West Fast Door 2",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Fast Door 3",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Fast Door 4",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Fast Wander 1",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Fast Wander 2",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Fast X-ray",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 55,
+  "capabilities": [
+   "x-ray"
+  ]
+ },
+ {
+  "name": "West Fast Lead",
+  "department": "Event Security",
+  "area": "West Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": true,
+  "desirability": 30,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "West Fast Door 1",
+   "West Fast Door 2",
+   "West Fast Door 3",
+   "West Fast Door 4",
+   "West Fast Wander 1",
+   "West Fast Wander 2",
+   "West Fast X-ray"
+  ]
+ },
+ {
+  "name": "West Slow Door 1",
+  "department": "Event Security",
+  "area": "West Slow",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ]
+ },
+ {
+  "name": "West Slow Door 2",
+  "department": "Event Security",
+  "area": "West Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Slow Door 3",
+  "department": "Event Security",
+  "area": "West Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Slow Door 4",
+  "department": "Event Security",
+  "area": "West Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Slow Wander 1",
+  "department": "Event Security",
+  "area": "West Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Slow Wander 2",
+  "department": "Event Security",
+  "area": "West Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "West Slow Lead",
+  "department": "Event Security",
+  "area": "West Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": true,
+  "desirability": 30,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "West Slow Door 1",
+   "West Slow Door 2",
+   "West Slow Door 3",
+   "West Slow Door 4",
+   "West Slow Wander 1",
+   "West Slow Wander 2"
+  ]
+ },
+ {
+  "name": "South Fast Door 1",
+  "department": "Event Security",
+  "area": "South Fast",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ]
+ },
+ {
+  "name": "South Fast Door 2",
+  "department": "Event Security",
+  "area": "South Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Fast Door 3",
+  "department": "Event Security",
+  "area": "South Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Fast Door 4",
+  "department": "Event Security",
+  "area": "South Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Fast Wander 1",
+  "department": "Event Security",
+  "area": "South Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Fast Wander 2",
+  "department": "Event Security",
+  "area": "South Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Fast Lead",
+  "department": "Event Security",
+  "area": "South Fast",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": true,
+  "desirability": 30,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "South Fast Door 1",
+   "South Fast Door 2",
+   "South Fast Door 3",
+   "South Fast Door 4",
+   "South Fast Wander 1",
+   "South Fast Wander 2"
+  ]
+ },
+ {
+  "name": "South Slow Door 1",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ]
+ },
+ {
+  "name": "South Slow Door 2",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Slow Door 3",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Slow Door 4",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Slow Wander 1",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Slow Wander 2",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "South Slow X-ray",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 55,
+  "capabilities": [
+   "x-ray"
+  ]
+ },
+ {
+  "name": "South Slow Lead",
+  "department": "Event Security",
+  "area": "South Slow",
+  "floor": "",
+  "shift_pattern": "two_shift_door",
+  "needs_breaking": false,
+  "is_lead": true,
+  "desirability": 30,
+  "capabilities": [
+   "doors"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "South Slow Door 1",
+   "South Slow Door 2",
+   "South Slow Door 3",
+   "South Slow Door 4",
+   "South Slow Wander 1",
+   "South Slow Wander 2",
+   "South Slow X-ray"
+  ]
+ },
+ {
+  "name": "NE Landing",
+  "department": "Event Security",
+  "area": "Landings",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 10,
+  "capabilities": [
+   "landing"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "min_tenure_half_years": 4
+ },
+ {
+  "name": "SE Landing",
+  "department": "Event Security",
+  "area": "Landings",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 10,
+  "capabilities": [
+   "landing"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "min_tenure_half_years": 4
+ },
+ {
+  "name": "NW Landing",
+  "department": "Event Security",
+  "area": "Landings",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 10,
+  "capabilities": [
+   "landing"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "min_tenure_half_years": 4
+ },
+ {
+  "name": "SW Landing",
+  "department": "Event Security",
+  "area": "Landings",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 10,
+  "capabilities": [
+   "landing"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "min_tenure_half_years": 4
+ },
+ {
+  "name": "Main Elevator",
+  "department": "Event Security",
+  "area": "Elevators",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 45,
+  "capabilities": [
+   "elevator"
+  ]
+ },
+ {
+  "name": "Press Row North",
+  "department": "Event Security",
+  "area": "Press Row",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "press row"
+  ]
+ },
+ {
+  "name": "Press Row South",
+  "department": "Event Security",
+  "area": "Press Row",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "press row"
+  ]
+ },
+ {
+  "name": "North Glass 1",
+  "department": "Event Security",
+  "area": "North Glass",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 30,
+  "capabilities": []
+ },
+ {
+  "name": "North Glass 2",
+  "department": "Event Security",
+  "area": "North Glass",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 30,
+  "capabilities": []
+ },
+ {
+  "name": "East Priority Lounge Backup Lead",
+  "department": "Event Security",
+  "area": "East Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 18,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "East Priority Lounge Staff 1",
+  "department": "Event Security",
+  "area": "East Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "East Priority Lounge Staff 2",
+  "department": "Event Security",
+  "area": "East Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "East Priority Lounge Staff 3",
+  "department": "Event Security",
+  "area": "East Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "East Priority Lounge Staff 4",
+  "department": "Event Security",
+  "area": "East Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "East Priority Lounge Lead",
+  "department": "Event Security",
+  "area": "East Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": true,
+  "desirability": 15,
+  "capabilities": [
+   "lounge"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "East Priority Lounge Backup Lead",
+   "East Priority Lounge Staff 1",
+   "East Priority Lounge Staff 2",
+   "East Priority Lounge Staff 3",
+   "East Priority Lounge Staff 4"
+  ]
+ },
+ {
+  "name": "West Priority Lounge Backup Lead",
+  "department": "Event Security",
+  "area": "West Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 18,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "West Priority Lounge Staff 1",
+  "department": "Event Security",
+  "area": "West Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "West Priority Lounge Staff 2",
+  "department": "Event Security",
+  "area": "West Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "West Priority Lounge Staff 3",
+  "department": "Event Security",
+  "area": "West Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "West Priority Lounge Staff 4",
+  "department": "Event Security",
+  "area": "West Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 20,
+  "capabilities": [
+   "lounge"
+  ]
+ },
+ {
+  "name": "West Priority Lounge Lead",
+  "department": "Event Security",
+  "area": "West Priority Lounge",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": true,
+  "desirability": 15,
+  "capabilities": [
+   "lounge"
+  ],
+  "resources": [
+   "Radio"
+  ],
+  "lead_of": [
+   "West Priority Lounge Backup Lead",
+   "West Priority Lounge Staff 1",
+   "West Priority Lounge Staff 2",
+   "West Priority Lounge Staff 3",
+   "West Priority Lounge Staff 4"
+  ]
+ },
+ {
+  "name": "Back of House Elevator",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ]
+ },
+ {
+  "name": "Referee Door",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Away Players 1",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Away Players 2",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Victory Bar",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ]
+ },
+ {
+  "name": "Victory Bar Ticket Checker",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ]
+ },
+ {
+  "name": "Home Team Door",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Press Box",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ]
+ },
+ {
+  "name": "Ice Box",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Away Corridor 1",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Away Corridor 2",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Away Corridor 3",
+  "department": "Event Security",
+  "area": "Back of House",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 40,
+  "capabilities": [
+   "back of house"
+  ],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Roam Floor 1 Team 1 A",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "100",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 1 Team 1 B",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "100",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 1 Team 2 A",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "100",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 1 Team 2 B",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "100",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 1 Team 3 A",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "100",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 1 Team 3 B",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "100",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 3 Team 1 A",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 3 Team 1 B",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 3 Team 2 A",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 3 Team 2 B",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 3 Team 3 A",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Roam Floor 3 Team 3 B",
+  "department": "Event Security",
+  "area": "Roam Teams",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 60,
+  "capabilities": [
+   "roam team"
+  ],
+  "pairing_rule": "mixed_gender"
+ },
+ {
+  "name": "Ice Store 1",
+  "department": "Event Security",
+  "area": "Stores",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 65,
+  "capabilities": [],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Ice Store 2",
+  "department": "Event Security",
+  "area": "Stores",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 65,
+  "capabilities": [],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Small Store 1",
+  "department": "Event Security",
+  "area": "Stores",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 65,
+  "capabilities": [],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Small Store 2",
+  "department": "Event Security",
+  "area": "Stores",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 65,
+  "capabilities": [],
+  "event_types": [
+   "Hockey"
+  ]
+ },
+ {
+  "name": "Plaza Door 1",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 2",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 3",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 4",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 5",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 6",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 7",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 8",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 9",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 10",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 11",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "Plaza Door 12",
+  "department": "Event Security",
+  "area": "Plaza Doors",
+  "floor": "",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 90,
+  "capabilities": [
+   "doors"
+  ]
+ },
+ {
+  "name": "View Bar 1",
+  "department": "Event Security",
+  "area": "View Bar",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 50,
+  "capabilities": []
+ },
+ {
+  "name": "View Bar 2",
+  "department": "Event Security",
+  "area": "View Bar",
+  "floor": "300",
+  "shift_pattern": "second_shift_only",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 50,
+  "capabilities": []
+ },
+ {
+  "name": "Section 101 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 102 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 103 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 104 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 105 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 106 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 107 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 108 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 109 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 110 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 111 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 112 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 113 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 114 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 115 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 116 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 117 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 118 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 119 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 120 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 121 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 122 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 123 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 124 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 125 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 126 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 127 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 128 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 129 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 130 Usher",
+  "department": "Event Services",
+  "area": "Sections 100",
+  "floor": "100",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 201 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 202 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 203 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 204 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 205 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 206 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 207 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 208 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 209 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 210 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 211 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 212 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 213 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 214 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 215 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 216 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 217 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 218 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 219 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 220 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 221 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 222 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 223 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 224 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 225 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 226 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 227 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 228 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 229 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 230 Usher",
+  "department": "Event Services",
+  "area": "Sections 200",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 301 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 302 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 303 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 304 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 305 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 306 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 307 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 308 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 309 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 310 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 311 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 312 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 313 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 314 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 315 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 316 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 317 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 318 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 319 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 320 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 321 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 322 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 323 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 324 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 325 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 326 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 327 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 328 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 329 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Section 330 Usher",
+  "department": "Event Services",
+  "area": "Sections 300",
+  "floor": "300",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 70,
+  "capabilities": [
+   "usher"
+  ],
+  "resources": [
+   "Stop Sign"
+  ]
+ },
+ {
+  "name": "Corridor Usher 1",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 2",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 3",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 4",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 5",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 6",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 7",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 8",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 9",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 10",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 11",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 12",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 13",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 14",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 15",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 16",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 17",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 18",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 19",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Corridor Usher 20",
+  "department": "Event Services",
+  "area": "Corridors",
+  "floor": "",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 75,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 1",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 2",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 3",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 4",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 5",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 6",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 7",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 8",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 9",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "Staircase 10",
+  "department": "Event Services",
+  "area": "200 Level Staircases",
+  "floor": "200",
+  "shift_pattern": "full_session",
+  "needs_breaking": true,
+  "is_lead": false,
+  "desirability": 85,
+  "capabilities": [
+   "usher"
+  ]
+ },
+ {
+  "name": "East Fast Door 1 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "East Fast Door 2 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "East Fast Door 3 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "East Fast Door 4 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "East Slow Door 1 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "East Slow Door 2 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "East Slow Door 3 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "East Slow Door 4 Ticket Taker",
+  "department": "Event Services",
+  "area": "East Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Fast Door 1 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Fast Door 2 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Fast Door 3 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Fast Door 4 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Slow Door 1 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Slow Door 2 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Slow Door 3 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "West Slow Door 4 Ticket Taker",
+  "department": "Event Services",
+  "area": "West Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Fast Door 1 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Fast Door 2 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Fast Door 3 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Fast Door 4 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Fast Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Slow Door 1 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Slow Door 2 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Slow Door 3 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ },
+ {
+  "name": "South Slow Door 4 Ticket Taker",
+  "department": "Event Services",
+  "area": "South Slow Tickets",
+  "floor": "",
+  "shift_pattern": "first_shift_only",
+  "needs_breaking": false,
+  "is_lead": false,
+  "desirability": 80,
+  "capabilities": [
+   "ticket taker"
+  ]
+ }
+]

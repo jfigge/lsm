@@ -1,0 +1,44 @@
+{
+ "roles": [
+  {"name": "Event Security"},
+  {"name": "Event Services"},
+  {"name": "Concessions", "children": [
+   {"name": "Chick-fil-Yay"},
+   {"name": "Windy's"},
+   {"name": "Burgers R Us"},
+   {"name": "Pizzas R Us"},
+   {"name": "Ice Creams R Us"}
+  ]},
+  {"name": "Parking"},
+  {"name": "Professional Services"},
+  {"name": "Medical"}
+ ],
+ "event_types": [
+  {"name": "Hockey", "match": ["Hurricanes vs "]},
+  {"name": "Concert", "match": ["Arena Concert"]},
+  {"name": "Comedy"},
+  {"name": "College Sport", "children": [
+   {"name": "Basketball", "match": ["NC State Basketball"]}
+  ]},
+  {"name": "Family Show", "match": ["Family Show"]},
+  {"name": "Touring Production", "match": ["Touring Production"]},
+  {"name": "One-off"}
+ ],
+ "capabilities": [
+  {"name": "roam team",     "staff_selectable": true,  "roles": ["Event Security", "Event Services"]},
+  {"name": "doors",         "staff_selectable": true,  "roles": ["Event Security", "Event Services", "Concessions", "Parking", "Professional Services", "Medical"]},
+  {"name": "x-ray",         "staff_selectable": true,  "roles": ["Event Security"]},
+  {"name": "press row",     "staff_selectable": true,  "roles": ["Event Security"]},
+  {"name": "elevator",      "staff_selectable": true,  "roles": ["Event Security"]},
+  {"name": "back of house", "staff_selectable": true,  "roles": ["Event Security"]},
+  {"name": "camera",        "staff_selectable": true,  "roles": ["Event Security"]},
+  {"name": "usher",         "staff_selectable": true,  "roles": ["Event Services"]},
+  {"name": "ticket taker",  "staff_selectable": true,  "roles": ["Event Services"]},
+  {"name": "landing",       "staff_selectable": false, "roles": ["Event Security"]},
+  {"name": "lounge",        "staff_selectable": false, "roles": ["Event Security"]}
+ ],
+ "resources": [
+  {"name": "Radio", "description": "Numbered radio from the reception rack.", "tracked": true, "instance_count": 40},
+  {"name": "Stop Sign", "description": "Hand-held stop sign for section ushers.", "tracked": false}
+ ]
+}
