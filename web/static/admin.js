@@ -183,10 +183,11 @@ function route() {
   if (!me) return;
   const [section, arg] = location.hash.slice(1).split("/");
   for (const a of nav.querySelectorAll("a")) {
-    a.classList.toggle("active", a.dataset.section === (section === "event" ? "months" : section || "months"));
+    a.classList.toggle("active", a.dataset.section === (section === "event" || section === "assign" ? "months" : section || "months"));
   }
   const run = {
     event: () => renderEvent(arg),
+    assign: () => renderAssign(arg),
     rules: renderRules,
     headcount: renderHeadcount,
   }[section] || (() => renderMonths(arg));
@@ -282,7 +283,8 @@ async function renderMonthEvents(panel, month) {
     }
     return h("tr", {},
       h("td", { class: "small", style: "white-space:nowrap" }, dayName(e.date)),
-      h("td", {}, h("a", { href: `#event/${e.id}` }, e.name), h("div", { class: "muted small" }, e.event_type)),
+      h("td", {}, h("a", { href: `#event/${e.id}` }, e.name), h("div", { class: "muted small" }, e.event_type,
+        e.roster_size ? [" · ", h("a", { href: `#assign/${e.id}` }, "assignments")] : null)),
       h("td", {}, depts),
       h("td", { class: "small" }, e.roster_size
         ? h("span", { class: "pill open" }, `${e.roster_size} on roster`)
@@ -345,7 +347,8 @@ async function renderEvent(id, keepState = false) {
       h("div", {}, h("h1", {}, ranking.event),
         h("p", { class: "muted" }, `${dayName(ranking.date)} · ranked with the saved weights · `,
           h("a", { href: "#rules" }, "change weights"))),
-      h("div", { class: "row" }, rosterState, commit)),
+      h("div", { class: "row" }, rosterState, commit,
+        ranking.roster_size ? h("a", { class: "btn", href: `#assign/${id}` }, "Assignments →") : null)),
     h("div", { class: "row spread", style: "margin-bottom:12px" }, filter, ruleLegend()),
     sections,
   );
@@ -653,6 +656,191 @@ async function renderHeadcount() {
         h("td", { style: `padding-left:${10 + 18 * t.depth}px` }, t.depth ? "↳ " : "", h("b", {}, t.name)),
         t.departments.map((d) => cell(t, d)))))))),
   );
+}
+
+// ---------------------------------------------------------- assignments --
+
+const assignState = { filter: "", dept: null, editing: null };
+
+async function renderAssign(id, keep = false) {
+  if (!keep) Object.assign(assignState, { filter: "", dept: null, editing: null });
+  const b = await api("GET", `/events/${id}/assignments`);
+  const refresh = () => renderAssign(id, true).catch(fail);
+  const depts = b.departments.filter((d) => d.posts.length);
+  if (!assignState.dept || !depts.some((d) => d.department_id === assignState.dept)) {
+    assignState.dept = (depts[0] || {}).department_id;
+  }
+  const d = depts.find((x) => x.department_id === assignState.dept);
+
+  const present = h("input", { type: "checkbox", id: "present-only" });
+  const run = h("button", { class: "primary" }, b.matched_at ? "Re-run matcher" : "Run matcher");
+  run.onclick = () => confirmInline(run,
+    b.matched_at ? "Re-running replaces every unpinned draft placement. Pinned and hand placements stay." : "Draft assignments for everyone on the roster.",
+    "Run", async () => {
+      const r = await api("POST", `/events/${id}/match`, { present_only: present.checked });
+      toast(`Placed ${r.summary.placed} · kept ${r.summary.pinned} pinned · ${r.summary.empty} empty`);
+      refresh();
+    });
+  const pub = h("button", {}, b.published_at ? "Back to draft" : "Publish");
+  pub.onclick = () => confirmInline(pub,
+    b.published_at ? "Mark the assignment as a draft again?" : "Publish: the sheet is final and goes to print. Changes afterwards are still recorded.",
+    b.published_at ? "Back to draft" : "Publish", async () => {
+      await api("PUT", `/events/${id}/published`, { published: !b.published_at });
+      refresh();
+    });
+
+  const status = b.published_at
+    ? h("span", { class: "pill open" }, `Published ${b.published_at}`)
+    : b.matched_at ? h("span", { class: "pill warn" }, `Draft · matched ${b.matched_at}`) : h("span", { class: "pill" }, "Not matched yet");
+
+  const filter = h("input", { type: "search", placeholder: "Find a post or person", value: assignState.filter, "aria-label": "Filter" });
+  const body = h("div");
+  const draw = () => put(body, d ? deptBoard(id, d, refresh) : h("p", { class: "muted" }, "No posts apply to this event."));
+  filter.oninput = () => { assignState.filter = filter.value.trim().toLowerCase(); draw(); };
+  draw();
+
+  const month = b.date.slice(0, 7);
+  put(view,
+    h("a", { class: "back", href: `#event/${id}` }, "← Ranking"), " ",
+    h("a", { class: "back", href: `#months/${month}` }, `· ${monthName(month)}`),
+    h("div", { class: "pagehead" },
+      h("div", {}, h("h1", {}, b.event, " — assignments"),
+        h("p", { class: "muted" }, `${dayName(b.date)} · ${b.roster_size} on the roster · `, status)),
+      h("div", { class: "row" },
+        h("label", { class: "row small", for: "present-only" }, present, "only people checked in"),
+        run, pub, h("a", { class: "btn", href: `/sheet?event=${id}` }, "Printed sheet"))),
+    depts.length > 1 ? h("div", { class: "row", style: "margin-bottom:12px" }, depts.map((x) => h("button", {
+      class: x.department_id === assignState.dept ? "primary" : "",
+      onclick: () => { assignState.dept = x.department_id; renderAssign(id, true).catch(fail); },
+    }, x.department))) : null,
+    d ? deptStats(d) : null,
+    h("div", { class: "row", style: "margin:12px 0" }, filter),
+    body);
+}
+
+function deptStats(d) {
+  return h("div", { class: "stats panel", style: "padding:10px 16px" },
+    h("span", {}, "First shift ", h("b", {}, `${d.first_filled} of ${d.first_established}`)),
+    h("span", {}, "Second shift ", h("b", {}, `${d.second_filled} of ${d.second_established}`)),
+    d.empty_posts ? h("span", { class: "pill bad" }, `${d.empty_posts} empty`) : h("span", { class: "pill open" }, "every post filled"),
+    d.unassigned ? h("span", { class: "pill warn" }, `${d.unassigned} on the roster without a post`) : null,
+    d.no_second_post ? h("span", { class: "pill info" }, `${d.no_second_post} freed at second shift with no post (breakers)`) : null,
+    d.needs_confirmation ? h("span", { class: "pill warn" }, `${d.needs_confirmation} roam placements to confirm`) : null);
+}
+
+const OVERRIDE_LABEL = {
+  placement: "placed by hand", min_tenure: "below min tenure", restricted: "restricted override",
+  lead: "lead chosen by hand", pairing: "pairing override",
+};
+
+function deptBoard(eventID, d, refresh) {
+  const q = assignState.filter;
+  const match = (p) => !q || p.name.toLowerCase().includes(q) || p.area.toLowerCase().includes(q) ||
+    p.occupants.some((o) => o.name.toLowerCase().includes(q) || o.badge.includes(q));
+  const sections = [];
+  for (const shift of ["first", "second"]) {
+    const posts = d.posts.filter((p) => p.shift === shift && match(p));
+    if (!posts.length) continue;
+    const rows = [];
+    let area = null;
+    for (const p of posts) {
+      if (p.area !== area) {
+        area = p.area;
+        rows.push(h("tr", {}, h("th", { colspan: 5, style: "text-transform:none;letter-spacing:0;font-size:.85rem" }, area || "Other")));
+      }
+      rows.push(...postRows(eventID, d, p, refresh));
+    }
+    sections.push(h("section", { class: "panel flush" },
+      h("header", { style: "padding:12px 16px" }, h("h2", {}, shift === "first" ? "First shift" : "Second shift"),
+        h("span", { class: "muted small" }, shift === "first" ? "Door posts redeploy at second shift; full-session posts stay" : "Filled from people freed at second shift")),
+      h("div", { class: "tablewrap" }, h("table", {},
+        h("thead", {}, h("tr", {}, h("th", {}, "Post"), h("th", {}, "Fill"), h("th", {}, "Person"),
+          h("th", {}, shift === "first" ? "Second shift" : "First shift"), h("th", {}, ""))),
+        h("tbody", {}, rows)))));
+  }
+  const loose = d.people.filter((p) => !p.first || (p.freed && !p.second));
+  if (loose.length) {
+    sections.push(h("section", { class: "panel stack" },
+      h("h2", {}, "People without a post"),
+      h("ul", { class: "small", style: "columns:3 16em;margin:0" }, loose.map((p) => h("li", {},
+        p.name, " ", h("span", { class: "muted" }, !p.first ? "no post" : `freed from ${p.first}`))))));
+  }
+  return h("div", { class: "stack" }, sections);
+}
+
+function postRows(eventID, d, p, refresh) {
+  const tags = [
+    p.is_lead ? h("span", { class: "pill info" }, "lead") : null,
+    p.paired ? h("span", { class: "pill info" }, "pair") : null,
+    p.min_tenure_half_years ? h("span", { class: "pill" }, `min ${p.min_tenure_half_years / 2}y`) : null,
+    p.resources.length ? h("span", { class: "muted small" }, p.resources.join(", ")) : null,
+  ];
+  const fillCls = p.occupants.length < p.headcount ? "pill bad" : p.occupants.length > p.headcount ? "pill info" : "pill";
+  const editing = assignState.editing === p.position_id;
+  const people = p.occupants.length ? p.occupants.map((o) => occupant(eventID, o, refresh)) : [h("span", { class: "muted" }, "—")];
+  const add = h("button", { class: "link", onclick: () => { assignState.editing = editing ? null : p.position_id; refresh(); } },
+    editing ? "cancel" : p.occupants.length ? "add / change" : "assign");
+  const rows = [h("tr", {},
+    h("td", {}, h("b", {}, p.name), " ", tags),
+    h("td", {}, h("span", { class: fillCls }, p.fill)),
+    h("td", {}, people.map((x) => h("div", { style: "margin-bottom:4px" }, x.main))),
+    h("td", { class: "small" }, people.map((x) => h("div", { style: "margin-bottom:4px" }, x.then || h("span", { class: "muted" }, "—")))),
+    h("td", { style: "white-space:nowrap" }, add))];
+  if (editing) rows.push(h("tr", { class: "detail" }, h("td", { colspan: 5 }, placeForm(eventID, d, p, refresh))));
+  return rows;
+}
+
+function occupant(eventID, o, refresh) {
+  const flags = [
+    o.pinned ? h("span", { class: "pill", title: o.source === "manual" ? "Placed by hand" : "Pinned: kept on re-run" }, o.source === "manual" ? "by hand" : "pinned") : null,
+    o.needs_confirmation ? h("span", { class: "pill warn", title: "A gender in this roam pair is not recorded: check the pair on the night" }, "confirm pair") : null,
+    o.overrides.filter((x) => x.kind !== "placement").map((x) =>
+      h("span", { class: "pill warn", title: `${x.by}, ${x.at}${x.note ? " — " + x.note : ""}` }, OVERRIDE_LABEL[x.kind] || x.kind)),
+  ];
+  const remove = h("button", { class: "link", title: "Remove from this post" }, "remove");
+  remove.onclick = () => confirmInline(remove, `Take ${o.name} off this post?`, "Remove", async () => {
+    await api("DELETE", `/events/${eventID}/assignments/${o.assignment_id}`);
+    refresh();
+  });
+  const pin = o.source === "matcher"
+    ? h("button", { class: "link", onclick: async () => {
+        await api("PUT", `/events/${eventID}/assignments/${o.assignment_id}/pin`, { pinned: !o.pinned }).catch(fail);
+        refresh();
+      } }, o.pinned ? "unpin" : "pin")
+    : null;
+  return {
+    main: h("span", {}, o.name, " ", h("span", { class: "muted small" }, `${o.badge} · ${o.tenure_years}y`), " ", flags, " ",
+      h("span", { class: "muted small", title: "Why the matcher chose them" }, o.reason), " ", pin, remove),
+    then: o.then,
+  };
+}
+
+// placeForm puts anyone on the roster on a post by hand. Nothing is
+// refused: overrides of min tenure, restrictions, the lead default or the
+// pairing rule are recorded and shown.
+function placeForm(eventID, d, p, refresh) {
+  const shiftOf = p.shift;
+  const sorted = [...d.people].sort((a, b) => {
+    const free = (x) => (shiftOf === "first" ? !x.first : x.freed && !x.second);
+    return (free(b) - free(a)) || a.name.localeCompare(b.name);
+  });
+  const sel = h("select", { "aria-label": "Person" }, h("option", { value: "" }, "Choose a person…"),
+    sorted.map((x) => {
+      const now = shiftOf === "first" ? x.first : x.second;
+      return h("option", { value: x.id }, `${x.name} (${x.badge}, ${x.tenure_years}y)${now ? " — now " + now : " — free"}`);
+    }));
+  const note = h("input", { placeholder: "Note (recorded)", size: 28, "aria-label": "Note" });
+  return h("div", { class: "row" }, h("b", {}, `Put someone on ${p.name}:`), sel, note,
+    h("button", { class: "primary", onclick: async () => {
+      if (!sel.value) return;
+      try {
+        await api("POST", `/events/${eventID}/assignments`, { position_id: p.position_id, person_id: sel.value, shift: shiftOf, note: note.value });
+        assignState.editing = null;
+        toast("Placed");
+        refresh();
+      } catch (e) { fail(e); }
+    } }, "Place"),
+    h("span", { class: "muted small" }, "They leave any other post they hold in this shift. Over-filling a post is allowed."));
 }
 
 start();

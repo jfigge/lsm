@@ -268,6 +268,21 @@ func TestAPIFlow(t *testing.T) {
 	if admin.do("POST", eventPath+"/roster", nil, &roster); roster.Added != 1 {
 		t.Errorf("roster = %+v", roster)
 	}
+	var matched struct {
+		Summary struct{ Pool int }
+		Board   struct {
+			RosterSize int `json:"roster_size"`
+		}
+	}
+	if status, _ := admin.do("POST", eventPath+"/match", nil, &matched); status != 200 || matched.Summary.Pool != 1 || matched.Board.RosterSize != 1 {
+		t.Errorf("match = %d %+v", status, matched)
+	}
+	if status, _ := staffer.do("POST", eventPath+"/match", nil, nil); status != 403 {
+		t.Errorf("staff running the matcher: %d", status)
+	}
+	if status, _ := admin.do("PUT", eventPath+"/published", map[string]bool{"published": true}, nil); status != 200 {
+		t.Errorf("publish: %d", status)
+	}
 	if status, _ := admin.do("PUT", "/api/v1/months/2026-10", map[string]string{"status": "closed"}, nil); status != 200 {
 		t.Errorf("closing month: %d", status)
 	}

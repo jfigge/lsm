@@ -24,7 +24,7 @@ func TestRoutes(t *testing.T) {
 	srv := httptest.NewServer(NewHandler(db, slog.New(slog.NewTextHandler(io.Discard, nil)), Options{}))
 	defer srv.Close()
 
-	for _, path := range []string{"/healthz", "/", "/kiosk", "/reception", "/supervisor", "/admin", "/admin.js", "/admin.css", "/unreturned"} {
+	for _, path := range []string{"/healthz", "/", "/kiosk", "/reception", "/supervisor", "/admin", "/admin.js", "/admin.css", "/unreturned", "/sheet"} {
 		res, err := http.Get(srv.URL + path)
 		if err != nil {
 			t.Fatal(err)

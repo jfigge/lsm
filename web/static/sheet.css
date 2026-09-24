@@ -1,0 +1,23 @@
+/* The printed deployment sheet: one row per post, grouped by area, with
+   room to write. The paper is the source of truth on the night. */
+.sheet main { max-width: 1100px; }
+.sheethead { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; border-bottom: 2px solid var(--fg); padding-bottom: 8px; margin-bottom: 12px; }
+.sheethead h1 { font-size: 1.4rem; }
+.sheet table { font-size: .85rem; }
+.sheet th, .sheet td { padding: 4px 8px; border-bottom: 1px solid var(--line); }
+.sheet td.write { width: 22%; border-left: 1px dashed var(--line); }
+.sheet tr.area td { font-weight: 700; background: var(--panel); padding-top: 8px; }
+.sheet .empty { color: var(--bad); font-weight: 600; }
+.sheet .note { font-size: .75rem; color: var(--warn); display: block; }
+.sheet h2 { margin: 18px 0 6px; font-size: 1.1rem; }
+.sheet .draft { color: var(--warn); font-weight: 700; }
+@media print {
+  @page { size: A4; margin: 12mm; }
+  .noprint { display: none !important; }
+  body.sheet { font-size: 9.5pt; padding: 0; }
+  .sheet main { padding: 0; max-width: none; }
+  .sheet section { break-before: page; }
+  .sheet section:first-of-type { break-before: auto; }
+  .sheet tr { break-inside: avoid; }
+  .sheet td, .sheet th { border-color: #999; }
+}
