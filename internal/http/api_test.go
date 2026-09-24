@@ -13,6 +13,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
@@ -287,6 +288,49 @@ func TestAPIFlow(t *testing.T) {
 	}
 	if status, code := staffer.do("GET", "/api/v1/me/shifts?from=2026-10-01", nil, nil); status != 400 {
 		t.Errorf("shifts without a range: %d %s", status, code)
+	}
+
+	// Kiosk: an admin pairs a station; its token scans and does nothing else.
+	var pair struct{ Token string }
+	if status, _ := admin.do("POST", "/api/v1/stations", map[string]string{"name": "East entrance"}, &pair); status != 200 || !strings.HasPrefix(pair.Token, "st_") {
+		t.Fatalf("pairing = %d %+v", status, pair)
+	}
+	kiosk := &client{t: t, base: base, token: pair.Token}
+	var scan struct{ Outcome, Heading, Message string }
+	if status, _ := kiosk.do("POST", "/api/v1/kiosk/scan", map[string]any{"event_id": event, "badge": "100001"}, &scan); status != 200 ||
+		scan.Outcome != "checked_in" || scan.Message != "No assignment — see reception" {
+		t.Errorf("kiosk scan = %d %+v", status, scan)
+	}
+	if status, _ := kiosk.do("GET", "/api/v1/me", nil, nil); status != 403 {
+		t.Errorf("station token reading /me: %d", status)
+	}
+	if status, _ := kiosk.do("GET", eventPath+"/ranking", nil, nil); status != 403 {
+		t.Errorf("station token reading a ranking: %d", status)
+	}
+	if status, _ := staffer.do("POST", "/api/v1/kiosk/scan", map[string]any{"event_id": event, "badge": "100001"}, nil); status != 403 {
+		t.Errorf("person token scanning at a kiosk: %d", status)
+	}
+
+	// Reception: badge lookup, unknown badge, issue and return.
+	var d struct {
+		Person struct{ ID, Name string }
+		Visit  *struct {
+			InLocation string `json:"in_location"`
+		}
+		Fields []struct{ ID, Name string }
+	}
+	if status, _ := admin.do("GET", eventPath+"/scan/100001", nil, &d); status != 200 || d.Visit == nil || d.Visit.InLocation != "kiosk" {
+		t.Errorf("reception lookup = %d %+v", status, d)
+	}
+	if status, code := admin.do("GET", eventPath+"/scan/424242", nil, nil); status != 404 || code != "badge_unknown" {
+		t.Errorf("unknown badge at reception: %d %s", status, code)
+	}
+	if status, _ := staffer.do("GET", eventPath+"/scan/100001", nil, nil); status != 403 {
+		t.Errorf("staff using reception: %d", status)
+	}
+	var stations []struct{ Name string }
+	if admin.do("GET", "/api/v1/stations", nil, &stations); len(stations) != 1 {
+		t.Errorf("stations = %+v", stations)
 	}
 
 	if status, _ := staffer.do("DELETE", "/api/v1/session", nil, nil); status != 200 {

@@ -39,6 +39,9 @@ const (
 	// passwordChange is reachable while a forced password change is
 	// pending; everything else is not.
 	passwordChange
+	// kioskStation is for paired kiosks only. Every other level refuses
+	// a station, so a kiosk token can scan badges and nothing more.
+	kioskStation
 )
 
 func (a *api) route(mux *http.ServeMux, pattern string, level access, h handler) {
@@ -49,6 +52,9 @@ func (a *api) route(mux *http.ServeMux, pattern string, level access, h handler)
 			return
 		}
 		switch {
+		case p.IsStation() != (level == kioskStation):
+			writeError(w, a.log, errForbidden)
+			return
 		case p.MustChangePassword && level != passwordChange:
 			writeError(w, a.log, errPasswordChange)
 			return

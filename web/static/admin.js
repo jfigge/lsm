@@ -2,6 +2,8 @@
 // Plain DOM, no framework. Every value from the server is inserted as
 // text, never as HTML.
 
+import { h, put, ApiError, request } from "./lib.js";
+
 const TOKEN_KEY = "lsm.admin.token";
 const view = document.getElementById("view");
 const nav = document.getElementById("nav");
@@ -21,50 +23,10 @@ let me = null;
 
 // ------------------------------------------------------------ helpers --
 
-function h(tag, attrs = {}, ...children) {
-  const el = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs || {})) {
-    if (v === undefined || v === null || v === false) continue;
-    if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
-    else if (k === "class") el.className = v;
-    else if (k === "style") el.setAttribute("style", v);
-    else if (v === true) el.setAttribute(k, "");
-    else el.setAttribute(k, v);
-  }
-  for (const c of children.flat(Infinity)) {
-    if (c === undefined || c === null || c === false) continue;
-    el.append(c instanceof Node ? c : document.createTextNode(String(c)));
-  }
-  return el;
-}
-
-// put replaces an element's children, skipping empty values.
-function put(el, ...children) {
-  el.replaceChildren(...children.flat(Infinity).filter((c) => c !== null && c !== undefined && c !== false)
-    .map((c) => (c instanceof Node ? c : document.createTextNode(String(c)))));
-}
-
-class ApiError extends Error {
-  constructor(status, code, message) {
-    super(message);
-    this.status = status;
-    this.code = code;
-  }
-}
-
 async function api(method, path, body) {
-  const headers = {};
-  const token = sessionStorage.getItem(TOKEN_KEY);
-  if (token) headers.Authorization = "Bearer " + token;
-  if (body !== undefined) headers["Content-Type"] = "application/json";
-  const res = await fetch("/api/v1" + path, {
-    method,
-    headers,
-    body: body === undefined ? undefined : JSON.stringify(body),
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    const e = data.error || {};
+  try {
+    return await request(method, path, body, sessionStorage.getItem(TOKEN_KEY));
+  } catch (e) {
     if (e.code === "unauthenticated") {
       sessionStorage.removeItem(TOKEN_KEY);
       me = null;
@@ -72,9 +34,8 @@ async function api(method, path, body) {
     } else if (e.code === "password_change_required") {
       renderPasswordChange();
     }
-    throw new ApiError(res.status, e.code, e.message || res.statusText);
+    throw e;
   }
-  return data;
 }
 
 let toastTimer;

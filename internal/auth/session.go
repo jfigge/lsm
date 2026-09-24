@@ -38,14 +38,20 @@ type Principal struct {
 	Name               string
 	Tier               staff.Tier
 	MustChangePassword bool
+	// Station is set, and the person fields are empty, when the caller
+	// is an unattended kiosk rather than a signed-in person.
+	Station *Station
 }
 
+// IsStation reports a kiosk rather than a person.
+func (p Principal) IsStation() bool { return p.Station != nil }
+
 // IsAdmin reports admin tier.
-func (p Principal) IsAdmin() bool { return p.Tier == staff.TierAdmin }
+func (p Principal) IsAdmin() bool { return !p.IsStation() && p.Tier == staff.TierAdmin }
 
 // IsSupervisor reports supervisor tier or above.
 func (p Principal) IsSupervisor() bool {
-	return p.Tier == staff.TierSupervisor || p.Tier == staff.TierAdmin
+	return !p.IsStation() && (p.Tier == staff.TierSupervisor || p.Tier == staff.TierAdmin)
 }
 
 // SignIn checks a username (email) and password and opens a session,
@@ -103,6 +109,9 @@ var dummyHash = sync.OnceValue(func() string {
 func Authenticate(ctx context.Context, db *sql.DB, token string, now time.Time) (Principal, error) {
 	if token == "" {
 		return Principal{}, ErrNoSession
+	}
+	if strings.HasPrefix(token, "st_") {
+		return authenticateStation(ctx, db, token, now)
 	}
 	p, err := lookup(ctx, db, `s.token_hash = ? AND s.revoked_at IS NULL AND s.expires_at > ? AND per.active = 1`,
 		tokenHash(token), entity.FormatTime(now))

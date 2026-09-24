@@ -5,9 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reception · LSM</title>
 <link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="/admin.css">
+<link rel="stylesheet" href="/reception.css">
+<script type="module" src="/reception.js"></script>
 </head>
-<body>
-<h1>Reception</h1>
-<p class="muted">Scan and resource issue arrive in build step 6.</p>
+<body class="admin reception">
+<header class="topbar">
+  <div class="brand">LSM <span>Reception</span></div>
+  <div id="eventpick"></div>
+  <div id="who"></div>
+</header>
+<div id="toast" role="status" aria-live="polite"></div>
+<main id="view"><p class="muted">Loading…</p></main>
 </body>
 </html>

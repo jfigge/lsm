@@ -37,6 +37,7 @@ var Tables = []string{
 	"persons",
 	"credentials",
 	"sessions",
+	"stations",
 	"capabilities",
 	"capability_roles",
 	"person_capabilities",

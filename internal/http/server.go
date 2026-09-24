@@ -44,6 +44,7 @@ func NewHandler(db *sql.DB, log *slog.Logger, opt Options) http.Handler {
 	a := &api{db: db, log: log, opt: opt, now: opt.Now}
 	a.authRoutes(mux)
 	a.signupRoutes(mux)
+	a.checkinRoutes(mux)
 	mux.HandleFunc("/api/", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusNotFound, map[string]any{
 			"error": map[string]string{"code": "not_found", "message": "no such endpoint"}})
