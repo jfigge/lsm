@@ -5,3 +5,4 @@ backup/
 *.db-wal
 *.db-shm
 .git/
+ios/

@@ -7,6 +7,7 @@ import (
 	"testing"
 	"time"
 
+	"lsm/internal/banner"
 	"lsm/internal/entity"
 	"lsm/internal/shifts"
 	"lsm/internal/staff"
@@ -355,5 +356,60 @@ func TestOpeningAMonthNotifiesOnce(t *testing.T) {
 	f.must(err)
 	if len(months) != 3 || months[2].Month != "2026-11" || months[2].Status != shifts.MonthClosed {
 		t.Errorf("months = %+v", months)
+	}
+}
+
+func TestPersonalScheduleAndHome(t *testing.T) {
+	f := newFixture(t)
+	ann := f.person("Ann", f.security, "2023-01-01", f.doors)
+	win := f.windows[1] // 15:30–21:30 local
+	f.must(shifts.InsertAvailability(f.ctx, f.db, shifts.Availability{ID: entity.NewID(), PersonID: ann,
+		EventID: f.target, Status: shifts.OneWindow, WindowID: entity.Some(win), SignedUpAt: t0}))
+	f.rate(ann, f.june[0], staff.RatingAcceptable) // worked in June
+	_, err := CommitRoster(f.ctx, f.db, f.target)
+	f.must(err)
+
+	from, _ := entity.ParseDate("2026-06-01")
+	to, _ := entity.ParseDate("2026-10-31")
+	got, err := PersonShifts(f.ctx, f.db, ann, from, to, f.loc)
+	f.must(err)
+	if len(got) != 2 {
+		t.Fatalf("shifts = %+v", got)
+	}
+	if got[0].Status != "worked" || got[0].EventID != f.june[0] {
+		t.Errorf("June shift = %+v", got[0])
+	}
+	oct := got[1]
+	if oct.Status != "rostered" || oct.TimeLabel != "3:30–9:30 pm" || oct.Area != "Event Security" {
+		t.Errorf("October shift = %+v (window times, department as area until assigned)", oct)
+	}
+
+	// Banners: the event type's for Security, overridden by one on the
+	// event itself; a banner for another department is never seen.
+	now := time.Date(2026, 9, 25, 12, 0, 0, 0, time.UTC)
+	home, err := HomeFor(f.ctx, f.db, ann, now, f.loc)
+	f.must(err)
+	if home.Banner != nil || len(home.Upcoming) != 1 {
+		t.Fatalf("home without banners = %+v", home)
+	}
+	_, err = banner.Create(f.ctx, f.db, "Services only", false, false, []entity.ID{f.services}, []entity.ID{f.hockey}, nil, now)
+	f.must(err)
+	_, err = banner.Create(f.ctx, f.db, "Staff meeting 5:30 East Priority", false, false, []entity.ID{f.security}, []entity.ID{f.hockey}, nil, now.Add(-time.Hour))
+	f.must(err)
+	if home, _ = HomeFor(f.ctx, f.db, ann, now, f.loc); home.Banner == nil || home.Banner.Text != "Staff meeting 5:30 East Priority" {
+		t.Errorf("type banner = %+v", home.Banner)
+	}
+	_, err = banner.Create(f.ctx, f.db, "Tonight: bag policy change", true, true, nil, nil, []entity.ID{f.target}, now.Add(-2*time.Hour))
+	f.must(err)
+	if home, _ = HomeFor(f.ctx, f.db, ann, now, f.loc); home.Banner == nil || home.Banner.Scope != "event" {
+		t.Errorf("event banner should override the type's: %+v", home.Banner)
+	}
+	// Outlet staff see a banner set on their parent role.
+	concessions := entity.Nil
+	f.must(f.db.QueryRow(`SELECT id FROM roles WHERE name = 'Concessions'`).Scan(&concessions))
+	_, err = banner.Create(f.ctx, f.db, "Concessions briefing", false, false, []entity.ID{concessions}, []entity.ID{f.hockey}, nil, now)
+	f.must(err)
+	if b, _ := banner.For(f.ctx, f.db, f.outlet, f.other); b == nil || b.Text != "Concessions briefing" {
+		t.Errorf("parent-role banner for an outlet = %+v", b)
 	}
 }

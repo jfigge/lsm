@@ -4,6 +4,7 @@ import (
 	"errors"
 	"math"
 	"net/http"
+	"time"
 
 	"lsm/internal/auth"
 	"lsm/internal/entity"
@@ -63,6 +64,32 @@ func (a *api) signupRoutes(mux *http.ServeMux) {
 
 	a.route(mux, "GET /api/v1/headcount", supervisorOnly, func(r *http.Request, p auth.Principal) (any, error) {
 		return signup.HeadcountDefaults(r.Context(), a.db)
+	})
+
+	// ------------------------------------------------------ own schedule --
+
+	a.route(mux, "GET /api/v1/me/home", signedIn, func(r *http.Request, p auth.Principal) (any, error) {
+		return signup.HomeFor(r.Context(), a.db, p.PersonID, a.now(), a.opt.Location)
+	})
+
+	// Shifts in a date range (?from=&to=, YYYY-MM-DD) or a month (?month=).
+	a.route(mux, "GET /api/v1/me/shifts", signedIn, func(r *http.Request, p auth.Principal) (any, error) {
+		var from, to time.Time
+		if m := r.URL.Query().Get("month"); m != "" {
+			start, err := signup.ParseMonth(m)
+			if err != nil {
+				return nil, err
+			}
+			from, to = start, start.AddDate(0, 1, -1)
+		} else {
+			var err1, err2 error
+			from, err1 = entity.ParseDate(r.URL.Query().Get("from"))
+			to, err2 = entity.ParseDate(r.URL.Query().Get("to"))
+			if err1 != nil || err2 != nil || to.Before(from) || to.Sub(from) > 400*24*time.Hour {
+				return nil, badRequest("give month=YYYY-MM, or from and to (YYYY-MM-DD, at most about a year apart)")
+			}
+		}
+		return signup.PersonShifts(r.Context(), a.db, p.PersonID, from, to, a.opt.Location)
 	})
 
 	// ------------------------------------------------- own availability --

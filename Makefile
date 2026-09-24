@@ -1,7 +1,8 @@
 # Lenovo Staff Manager.
 #
 # Six working targets (SPEC §1): build, run, test, migrate, image, clean,
-# plus `help`, which only lists them. Formatting, vet and other checks run as
+# plus `ios` (SPEC §10.1: the app's one build target) and `help`, which only
+# lists them. Formatting, vet and other checks run as
 # steps inside the working targets and are deliberately not callable on their
 # own. Do not add further targets.
 #
@@ -25,7 +26,7 @@ define check
 	$(GO) vet ./...
 endef
 
-.PHONY: build run test migrate image clean help
+.PHONY: build run test migrate image clean ios help
 
 # Bare `make` lists the targets rather than building.
 .DEFAULT_GOAL := help
@@ -48,10 +49,13 @@ image: ## Check formatting and vet, then build the Docker image (lsm:latest)
 	$(check)
 	docker build -f deploy/Dockerfile -t $(IMAGE):$(TAG) .
 
+ios: ## Build the iOS app and install it on the connected iPhone (DEVICE=sim for the Simulator)
+	ios/install.sh
+
 # Removes build output only. The database and backups are data, not build
 # artefacts, and are never touched here.
 clean: ## Remove build output (never the database or backups)
-	rm -rf bin
+	rm -rf bin ios/build
 	$(GO) clean -testcache
 
 help: ## List the targets

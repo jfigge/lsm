@@ -274,6 +274,21 @@ func TestAPIFlow(t *testing.T) {
 		t.Errorf("changing a closed month: %d %s", status, code)
 	}
 
+	var home struct {
+		Name     string
+		Upcoming []any
+	}
+	if status, _ := staffer.do("GET", "/api/v1/me/home", nil, &home); status != 200 || home.Name != "Sofia Turner" {
+		t.Errorf("home = %d %+v", status, home)
+	}
+	var shifts []struct{ Status, TimeLabel string }
+	if status, _ := staffer.do("GET", "/api/v1/me/shifts?month=2026-10", nil, &shifts); status != 200 || len(shifts) != 1 || shifts[0].Status != "rostered" {
+		t.Errorf("shifts after the roster commit = %d %+v", status, shifts)
+	}
+	if status, code := staffer.do("GET", "/api/v1/me/shifts?from=2026-10-01", nil, nil); status != 400 {
+		t.Errorf("shifts without a range: %d %s", status, code)
+	}
+
 	if status, _ := staffer.do("DELETE", "/api/v1/session", nil, nil); status != 200 {
 		t.Errorf("sign out: %d", status)
 	}
