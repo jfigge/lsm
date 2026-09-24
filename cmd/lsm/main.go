@@ -2,7 +2,8 @@
 // JSON API and the static front end, plus the operational subcommands.
 //
 //	lsm serve     apply pending migrations, then serve HTTP
-//	lsm migrate   apply pending migrations and exit
+//	lsm migrate   apply pending migrations and exit; -seed also loads
+//	              the demo seed data (idempotent)
 //	lsm export    write a full JSON archive to stdout (or -o FILE)
 package main
 
@@ -20,10 +21,13 @@ import (
 	"path/filepath"
 	"syscall"
 	"time"
+	_ "time/tzdata" // the distroless image has no zoneinfo
 
 	"lsm/internal/archive"
 	"lsm/internal/config"
 	lsmhttp "lsm/internal/http"
+	"lsm/internal/seed"
+	"lsm/internal/signup"
 	"lsm/internal/store"
 )
 
@@ -50,7 +54,7 @@ func run(args []string, log *slog.Logger) error {
 	case "serve":
 		return serve(ctx, cfg, log)
 	case "migrate":
-		return migrate(ctx, cfg, log)
+		return migrate(ctx, cfg, log, args[1:])
 	case "export":
 		return export(ctx, cfg, args[1:])
 	default:
@@ -65,13 +69,32 @@ func openDB(cfg config.Config) (*sql.DB, error) {
 	return store.Open(cfg.DBPath)
 }
 
-func migrate(ctx context.Context, cfg config.Config, log *slog.Logger) error {
+func migrate(ctx context.Context, cfg config.Config, log *slog.Logger, args []string) error {
+	fs := flag.NewFlagSet("migrate", flag.ContinueOnError)
+	withSeed := fs.Bool("seed", false, "after migrating, load missing demo seed data from LSM_SEED_DIR")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
 	db, err := openDB(cfg)
 	if err != nil {
 		return err
 	}
 	defer db.Close()
-	return applyMigrations(ctx, db, log)
+	if err := applyMigrations(ctx, db, log); err != nil {
+		return err
+	}
+	if !*withSeed {
+		return nil
+	}
+	sum, err := seed.Load(ctx, db, cfg.SeedDir, cfg.Location)
+	if err != nil {
+		return err
+	}
+	for _, c := range sum {
+		log.Info("seed", "table", c.Table, "inserted", c.Inserted, "skipped", c.Skipped)
+	}
+	log.Info("seed loaded", "dir", cfg.SeedDir, "inserted", sum.Inserted())
+	return nil
 }
 
 func applyMigrations(ctx context.Context, db *sql.DB, log *slog.Logger) error {
@@ -102,8 +125,11 @@ func serve(ctx context.Context, cfg config.Config, log *slog.Logger) error {
 	}
 
 	srv := &http.Server{
-		Addr:              cfg.Addr,
-		Handler:           lsmhttp.NewHandler(db, log),
+		Addr: cfg.Addr,
+		Handler: lsmhttp.NewHandler(db, log, lsmhttp.Options{
+			Location: cfg.Location,
+			Notifier: signup.LogNotifier{Log: log},
+		}),
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 	errc := make(chan error, 1)

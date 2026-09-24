@@ -41,8 +41,8 @@ test: ## Check formatting and vet, then run all tests with -race
 	$(check)
 	$(GO) test -race -count=1 ./...
 
-migrate: build ## Build, then apply pending migrations to the local database
-	./$(BIN) migrate
+migrate: build ## Build, then apply pending migrations and load missing seed data
+	./$(BIN) migrate -seed
 
 image: ## Check formatting and vet, then build the Docker image (lsm:latest)
 	$(check)

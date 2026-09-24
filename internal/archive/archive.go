@@ -36,6 +36,7 @@ var Tables = []string{
 	"roles",
 	"persons",
 	"credentials",
+	"sessions",
 	"capabilities",
 	"capability_roles",
 	"person_capabilities",
@@ -64,6 +65,9 @@ var Tables = []string{
 	"banner_event_types",
 	"banner_events",
 	"settings",
+	"ranking_rules",
+	"headcount_overrides",
+	"signup_overrides",
 }
 
 // Archive is the on-disk envelope.

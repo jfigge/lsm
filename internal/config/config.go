@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 // Config is the process configuration.
@@ -23,6 +24,9 @@ type Config struct {
 	BackupDir string
 	// SeedDir holds demo seed data. LSM_SEED_DIR, default "seed".
 	SeedDir string
+	// Location is the venue's time zone, used for local wall-clock times
+	// such as shift windows. LSM_TZ, default "America/New_York".
+	Location *time.Location
 }
 
 // Load reads the configuration from the environment.
@@ -36,6 +40,11 @@ func Load() (Config, error) {
 	if c.DBPath == "" {
 		return c, fmt.Errorf("config: LSM_DB_PATH is empty")
 	}
+	loc, err := time.LoadLocation(env("LSM_TZ", "America/New_York"))
+	if err != nil {
+		return c, fmt.Errorf("config: LSM_TZ: %w", err)
+	}
+	c.Location = loc
 	return c, nil
 }
 

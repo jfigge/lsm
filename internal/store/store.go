@@ -42,6 +42,7 @@ func Open(path string) (*sql.DB, error) {
 		"journal_mode(WAL)",
 		"busy_timeout(5000)",
 		"synchronous(NORMAL)",
+		"cache_size(-32000)", // 32 MB page cache: the demo database fits
 	} {
 		q.Add("_pragma", p)
 	}

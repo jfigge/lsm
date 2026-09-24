@@ -21,7 +21,7 @@ func TestRoutes(t *testing.T) {
 	if _, err := store.Migrate(context.Background(), db); err != nil {
 		t.Fatal(err)
 	}
-	srv := httptest.NewServer(NewHandler(db, slog.New(slog.NewTextHandler(io.Discard, nil))))
+	srv := httptest.NewServer(NewHandler(db, slog.New(slog.NewTextHandler(io.Discard, nil)), Options{}))
 	defer srv.Close()
 
 	for _, path := range []string{"/healthz", "/", "/kiosk", "/reception", "/supervisor", "/admin"} {

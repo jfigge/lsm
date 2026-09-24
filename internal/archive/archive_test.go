@@ -7,6 +7,7 @@ import (
 	"errors"
 	"path/filepath"
 	"slices"
+	"strings"
 	"testing"
 
 	"lsm/internal/store"
@@ -113,10 +114,10 @@ func TestRestoreIsAtomic(t *testing.T) {
 	exec(t, db, `INSERT INTO resources (id, name) VALUES ('00000000-0000-7000-8000-0000000000ee', 'Survivor')`)
 
 	// A dangling foreign key fails at commit; nothing may change.
-	bad := `{"format":"lsm-archive","format_version":1,"schema_version":"0001","exported_at":"x","tables":[
+	bad := `{"format":"lsm-archive","format_version":1,"schema_version":"CURRENT","exported_at":"x","tables":[
 	  {"name":"persons","rows":[{"id":"00000000-0000-7000-8000-000000000001","badge":"1","name":"x",
 	   "role_id":"00000000-0000-7000-8000-00000000dead","hire_date":"2020-01-01","created_at":"t","updated_at":"t"}]}]}`
-	if _, err := RestoreOverwrite(ctx, db, bytes.NewBufferString(bad)); err == nil {
+	if _, err := RestoreOverwrite(ctx, db, archiveJSON(t, bad)); err == nil {
 		t.Fatal("restore with dangling foreign key succeeded")
 	}
 	var n int
@@ -129,12 +130,12 @@ func TestRestoreRejects(t *testing.T) {
 	ctx := context.Background()
 	db := newDB(t)
 	cases := map[string]string{
-		"wrong format":   `{"format":"abi","format_version":1,"schema_version":"0001","tables":[]}`,
-		"unknown table":  `{"format":"lsm-archive","format_version":1,"schema_version":"0001","tables":[{"name":"sqlite_master","rows":[]}]}`,
-		"unknown column": `{"format":"lsm-archive","format_version":1,"schema_version":"0001","tables":[{"name":"settings","rows":[{"key":"k","value":"v","updated_at":"t","x\"); DROP TABLE roles; --":1}]}]}`,
+		"wrong format":   `{"format":"abi","format_version":1,"schema_version":"CURRENT","tables":[]}`,
+		"unknown table":  `{"format":"lsm-archive","format_version":1,"schema_version":"CURRENT","tables":[{"name":"sqlite_master","rows":[]}]}`,
+		"unknown column": `{"format":"lsm-archive","format_version":1,"schema_version":"CURRENT","tables":[{"name":"settings","rows":[{"key":"k","value":"v","updated_at":"t","x\"); DROP TABLE roles; --":1}]}]}`,
 	}
 	for name, in := range cases {
-		if _, err := RestoreOverwrite(ctx, db, bytes.NewBufferString(in)); err == nil {
+		if _, err := RestoreOverwrite(ctx, db, archiveJSON(t, in)); err == nil {
 			t.Errorf("%s: accepted", name)
 		}
 	}
@@ -142,6 +143,18 @@ func TestRestoreRejects(t *testing.T) {
 	if _, err := RestoreOverwrite(ctx, db, bytes.NewBufferString(old)); !errors.Is(err, ErrSchemaMismatch) {
 		t.Errorf("schema mismatch: err = %v", err)
 	}
+}
+
+// archiveJSON substitutes the current schema version for CURRENT, so a
+// hand-written archive fails for the reason under test rather than a
+// version mismatch.
+func archiveJSON(t *testing.T, s string) *bytes.Buffer {
+	t.Helper()
+	all, err := store.Migrations()
+	if err != nil {
+		t.Fatal(err)
+	}
+	return bytes.NewBufferString(strings.ReplaceAll(s, `"CURRENT"`, `"`+all[len(all)-1].Version+`"`))
 }
 
 func exec(t *testing.T, db *sql.DB, stmts ...string) {

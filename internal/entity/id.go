@@ -164,3 +164,15 @@ func ParseTime(s string) (time.Time, error) {
 	}
 	return t.UTC(), nil
 }
+
+// FormatDate renders the calendar date of t in DateLayout.
+func FormatDate(t time.Time) string { return t.Format(DateLayout) }
+
+// ParseDate parses a stored calendar date as midnight UTC.
+func ParseDate(s string) (time.Time, error) {
+	t, err := time.Parse(DateLayout, s)
+	if err != nil {
+		return time.Time{}, fmt.Errorf("entity: invalid date %q: %w", s, err)
+	}
+	return t, nil
+}
