@@ -166,6 +166,15 @@ func (a *api) checkinRoutes(mux *http.ServeMux) {
 
 	a.route(mux, "GET /api/v1/events/{event}/desk/{person}", supervisorOnly, desk(nil))
 
+	// End-of-night reconciliation: what went out and has not come back.
+	a.route(mux, "GET /api/v1/events/{event}/unreturned", supervisorOnly, func(r *http.Request, p auth.Principal) (any, error) {
+		eventID, err := pathID(r, "event")
+		if err != nil {
+			return nil, err
+		}
+		return checkin.Unreturned(r.Context(), a.db, eventID, a.now(), a.opt.Location)
+	})
+
 	// Idempotent: someone already in keeps their original time and place.
 	a.route(mux, "POST /api/v1/events/{event}/desk/{person}/checkin", supervisorOnly,
 		desk(func(r *http.Request, p auth.Principal, e, person entity.ID) (string, error) {

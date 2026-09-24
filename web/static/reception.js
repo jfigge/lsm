@@ -102,12 +102,16 @@ async function pickEvent() {
     !eventID ? h("option", { value: "" }, "Choose an event…") : null,
     ev.today.length ? h("optgroup", { label: "Today" }, ev.today.map((e) => opt(e))) : null,
     h("optgroup", { label: "Nearby" }, ev.nearby.filter((n) => !ev.today.some((t) => t.id === n.id)).map((e) => opt(e))));
+  const link = document.getElementById("reportlink");
+  const syncLink = () => (link.href = "/unreturned" + (eventID ? "?event=" + eventID : ""));
   sel.onchange = () => {
     eventID = sel.value;
     history.replaceState(null, "", "?event=" + eventID);
     desk = null;
+    syncLink();
     renderDesk();
   };
+  syncLink();
   put(eventPick, sel);
   renderDesk();
 }

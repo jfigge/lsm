@@ -276,3 +276,63 @@ func TestSearchPeople(t *testing.T) {
 		}
 	}
 }
+
+func TestUnreturnedReport(t *testing.T) {
+	f := newFixture(t)
+	ann, ben := f.person("100001", "Ann Lee"), f.person("100002", "Ben Ode")
+	f.roster(ann)
+	f.assign(ann)
+
+	// Radio 2 went home with Ben three nights ago.
+	_, err := Issue(f.ctx, f.db, f.earlier, ben, IssueRequest{ResourceID: f.radio, Number: "2"}, f.op, f.now.AddDate(0, 0, -3))
+	f.must(err)
+	// Tonight: Ann takes radio 1 and a stop sign, returns the sign, and
+	// leaves with the radio; Ben is issued an unregistered 77.
+	f.issue(ann, IssueRequest{ResourceID: f.radio, FirstAvailable: true}, f.now)
+	f.issue(ann, IssueRequest{ResourceID: f.stopSign}, f.now)
+	f.issue(ben, IssueRequest{ResourceID: f.radio, Number: "77"}, f.now)
+	d, _ := DeskFor(f.ctx, f.db, f.event, ann, f.loc)
+	for _, x := range d.Issued {
+		if x.Resource == "Stop Sign" {
+			f.must(Return(f.ctx, f.db, f.event, ann, x.ID, f.op, f.now.Add(time.Hour)))
+		}
+	}
+	f.must(CheckOut(f.ctx, f.db, f.event, ann, Where{Location: "kiosk"}, f.now.Add(3*time.Hour)))
+
+	r, err := Unreturned(f.ctx, f.db, f.event, f.now.Add(4*time.Hour), f.loc)
+	f.must(err)
+	if r.Issued != 3 || r.Returned != 1 || r.Out != 2 {
+		t.Errorf("totals = issued %d, returned %d, out %d", r.Issued, r.Returned, r.Out)
+	}
+	var radio ResourceReport
+	for _, rr := range r.Resources {
+		if rr.Resource == "Radio" {
+			radio = rr
+		}
+	}
+	states := map[string]string{}
+	for _, s := range radio.Rack {
+		states[s.Number] = s.State
+	}
+	if states["1"] != "out" || states["2"] != "earlier" || states["3"] != "in" || len(radio.Rack) != 3 {
+		t.Errorf("rack = %v", states)
+	}
+	if len(radio.Outstanding) != 2 || radio.Outstanding[0].Number != "1" || radio.Outstanding[1].Number != "77" {
+		t.Fatalf("outstanding = %+v", radio.Outstanding)
+	}
+	if o := radio.Outstanding[0]; o.Name != "Ann Lee" || o.Post != "East Fast Door 1" || o.CheckedOut != "9:42 pm" {
+		t.Errorf("Ann's radio = %+v (left without returning it)", o)
+	}
+	if o := radio.Outstanding[1]; o.Registered || o.CheckedOut != "" {
+		t.Errorf("free-typed radio = %+v", o)
+	}
+	if len(r.Earlier) != 1 || r.Earlier[0].Name != "Ben Ode" || r.Earlier[0].Number != "2" {
+		t.Errorf("earlier nights = %+v", r.Earlier)
+	}
+
+	// Items issued at a later event never show on an earlier night's report.
+	r, _ = Unreturned(f.ctx, f.db, f.earlier, f.now, f.loc)
+	if r.Out != 1 || len(r.Earlier) != 0 {
+		t.Errorf("earlier night's report = out %d, earlier %d", r.Out, len(r.Earlier))
+	}
+}

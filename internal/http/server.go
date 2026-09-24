@@ -60,7 +60,7 @@ func NewHandler(db *sql.DB, log *slog.Logger, opt Options) http.Handler {
 
 	// Screen entry points. Each is a static page for now; the pages
 	// themselves arrive with later build steps (SPEC §8).
-	for _, screen := range []string{"kiosk", "reception", "supervisor", "admin"} {
+	for _, screen := range []string{"kiosk", "reception", "unreturned", "supervisor", "admin"} {
 		page := screen + ".html"
 		mux.HandleFunc("GET /"+screen, func(w http.ResponseWriter, r *http.Request) {
 			http.ServeFileFS(w, r, static, page)
